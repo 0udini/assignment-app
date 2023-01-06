@@ -23,7 +23,7 @@ export class AssignmentsTableComponent implements AfterViewInit {
 
   ) { }
 
-  displayedColumns: string[] = ['select', 'nom', 'Date de rendu', 'rendu','auteur','actions'];
+  displayedColumns: string[] = ['select', 'nom', 'Date de rendu', 'rendu', 'auteur', 'actions'];
   dataSource!: MatTableDataSource<Assignment>;
   selection = new SelectionModel<Assignment>(true, []);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -37,6 +37,7 @@ export class AssignmentsTableComponent implements AfterViewInit {
   //   })
 
   ngAfterViewInit(): void {
+    console.log('ngAfterViewInit is called ');
     document.addEventListener('DOMContentLoaded', (event) => {
       console.log('DOM fully loaded and parsed');
       this.initializeAdminTable();
@@ -76,14 +77,17 @@ export class AssignmentsTableComponent implements AfterViewInit {
   initializeAdminTable() {
 
     this.assignmentsService.getAssignments().subscribe(assignments => {
-      if (this.isAdmin()) {
-        this.localAssignments = assignments;
-        this.dataSource = new MatTableDataSource(assignments);
-      }
-      else {
-        this.localAssignments = assignments.filter(assignment => assignment.auteur === this.authService.getCurrentUser().name);
+      
+        this.localAssignments = assignments.filter(assignment => {
+          if (this.authService.getCurrentUser().name === "admin") {
+            return true;
+          }
+          else {
+            return assignment.auteur === this.authService.getCurrentUser().name
+          }
+        });
         this.dataSource = new MatTableDataSource(this.localAssignments);
-      }
+      
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
       this.dataSource.sortingDataAccessor = (item, property) => {
@@ -140,7 +144,7 @@ export class AssignmentsTableComponent implements AfterViewInit {
     console.log(row.boiteDeRendu);
   }
 
-  
+
   openLink(row: Assignment) {
     window.open(row.boiteDeRendu?.toString(), "_blank");
   }
