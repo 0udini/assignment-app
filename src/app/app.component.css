@@ -1,0 +1,40 @@
+.example-spacer {
+    flex: 1 1 auto;
+    /* make a black line */
+    border-right: 1px solid black;
+    
+  }
+.second-spacer {
+    flex: 0.05 1 auto;
+  }
+  mat-sidenav-container {
+      height: calc(205vh - 114vh);
+  }
+
+mat-sidenav{
+  width: 200px;
+  background-color: rgb(102, 142, 235);
+}
+p {
+  margin:0;
+}
+/* make the buttons with higlights */
+mat-nav-list a {
+  text-decoration: none;
+  color: black;
+
+}
+
+/* make the buttons grey when the cursor is on them */
+mat-nav-list a:hover {
+  background-color: rgb(163, 182, 204);
+}
+mat-divider {
+  margin: 4px 14px;
+  /* make the divider black */
+  border-top: 1px solid black;
+}
+mat-sidenav-content {
+  background-color: rgb(255, 255, 255);
+  padding: 15px 15px;
+}

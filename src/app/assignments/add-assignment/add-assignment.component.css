@@ -1,0 +1,48 @@
+form.form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 auto;
+  padding: 16px;
+  flex-wrap: wrap;
+}
+
+mat-form-field {
+  padding: 0 8px;
+  width: 100%;
+  
+}
+mat-form-field.nomDevoir {
+  width: 70%;
+  flex: 1 70%;
+}
+
+mat-form-field.date {
+  width: 30%;
+  flex: 1 20%;
+}
+
+mat-form-field.url {
+  width: 70%;
+  flex: 2 70%;
+}
+
+mat-form-field.note {
+  width: 30%;
+  flex: 2 10%;
+  text-align: right;
+}
+mat-form-field.remarque {
+  width: 100%;
+  flex: 3 100%;
+}
+mat-card {
+  padding: 16px;
+  margin: 16px;
+}
+
+button {
+  width: 100%;
+  margin-top: 16px;
+}
+

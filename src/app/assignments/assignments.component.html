@@ -1,0 +1,19 @@
+
+<main  class="container">
+  <div class="ajouterBouton">
+  <a routerLink="/add">
+  <button *ngIf="!formVisible"
+    mat-raised-button color="primary"
+    (click)="onAddAssignmentBtnClick()"
+    class="AjouterBtn"
+  >
+    Ajouter un devoir
+  </button>
+</a>  
+</div>
+  <h1>Liste des devoirs à rendre :</h1>
+  
+  <app-assignments-table></app-assignments-table>
+</main>
+
+

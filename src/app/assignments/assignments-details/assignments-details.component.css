@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    }
+
+#buttons{
+    
+    justify-content: space-between;
+    width: 100%;
+    
+}
+
+.buttons{
+    text-align: center;
+}
+.remarque{
+    /* make the text bold and bigger */
+    font-weight: bold;
+    width: 100%;
+    margin-top: 2%;
+}
+
+.spacer {
+    flex: 1 1 auto;
+    /* make a black line */
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.note {
+    /* align to the right */
+    text-align: right;
+  }
+
+.spacer-line {
+    flex: 1 1 auto;
+    /* make a black line */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-top: 1px solid black;
+    
+  }

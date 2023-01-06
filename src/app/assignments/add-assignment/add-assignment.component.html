@@ -1,0 +1,52 @@
+<mat-card *ngIf="isLoggedIn()">
+  <form
+    ngForm
+    (submit)="onSubmit(); assignmentForm.reset()"
+    #assignmentForm
+    class="form"
+  >
+    <mat-form-field class="nomDevoir">
+      <input
+        matInput
+        [(ngModel)]="nomDevoir"
+        name="nom"
+        placeholder="Nom du devoir"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="date">
+      <input
+        matInput
+        [matDatepicker]="picker"
+        placeholder="Date de rendu"
+        [(ngModel)]="dateDeRendu"
+        name="date"
+        required
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="url">
+      <input
+        matInput
+        [(ngModel)]="urlDevoir"
+        name="URL"
+        placeholder="URL de la boîte de dépot"
+      />
+    </mat-form-field>
+    <mat-form-field class="note">
+      <input
+        matInput
+        [(ngModel)]="noteDevoir"
+        name="note"
+        placeholder="Note"
+      />
+    </mat-form-field>
+    <mat-form-field class="remarque" >
+      <mat-label>Remarques pour le devoir</mat-label>
+      <textarea matInput [(ngModel)]="remarque" name="remarque"></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">Ajouter un devoir</button>
+  </form>
+</mat-card>

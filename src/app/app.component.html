@@ -1,0 +1,47 @@
+<p>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="opened=!opened" class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <!-- add a vertical separator -->
+      <mat-divider [vertical]="true"></mat-divider>
+      <span>Plateforme de gestion des devoirs</span>
+      <span class="example-spacer"></span>
+      <div>
+      <mat-slide-toggle (click)="logout()" [checked]="isLoggedIn()">
+        <div *ngIf="isLoggedIn()"> Se déconnecter </div>
+        <div *ngIf="!isLoggedIn()"> Se connecter </div>
+      </mat-slide-toggle>
+    
+    </div>  
+    <span class="second-spacer"></span>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" routerLink="/home">
+        <mat-divider [vertical]="true"></mat-divider>
+        <mat-icon>home</mat-icon>
+      </button>
+    </mat-toolbar>
+  </p>
+<mat-sidenav-container>
+  <mat-sidenav [(opened)]="opened" mode="side">
+    <mat-nav-list>
+      <mat-divider [vertical]="false"></mat-divider>
+
+      
+      <a mat-list-item href="home">Page d'acceuil</a>
+      <mat-divider [vertical]="false"></mat-divider>
+
+      
+      <a mat-list-item href="assignmentList">Liste des devoirs</a>
+      <mat-divider [vertical]="false"></mat-divider>
+      <a mat-list-item href="add">Ajouter un devoir</a>
+      <mat-divider [vertical]="false"></mat-divider>
+      <a mat-list-item (click)="populate()">Peupler la base de données</a>
+      <mat-divider [vertical]="false"></mat-divider>
+      <a mat-list-item (click)="reset()" >Réinitialiser la base de données</a>
+      <mat-divider [vertical]="false"></mat-divider>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,81 @@
+<div class="container">
+
+    <mat-card class="child" id="late">
+        <mat-card-header>
+            <mat-card-title>
+                <h1>Liste des devoirs en retard:</h1>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content *ngFor="let a of assigmentsEnRetard">
+
+            <mat-card [routerLink]="['/assignment', a._id]">
+                <mat-card-header>
+                    <mat-card-title>
+                        <div>{{a.nom}}</div>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div>
+                        <div> <b> Date de rendu :</b> {{a.dateDeRendu | date}}</div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            <div class="spacer"></div>
+            <!-- add a spacer -->
+
+        </mat-card-content>
+    </mat-card>
+
+    <div class="spacer"></div>
+
+    <mat-card class="child" id="week">
+        <mat-card-header>
+            <mat-card-title>
+                <h1>Liste des devoirs à rendre dans la semaine:</h1>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content *ngFor="let a of assigmentsPourLaSemaine">
+            <mat-card [routerLink]="['/assignment', a._id]">
+                <mat-card-header>
+                    <mat-card-title>
+                        <div>{{a.nom}}</div>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div>
+                        <div> <b> Date de rendu :</b> {{a.dateDeRendu | date}}</div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            <div class="spacer"></div>
+            <!-- add a spacer -->
+
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card class="child" id="month">
+        <mat-card-header>
+            <mat-card-title>
+                <h1>Liste des devoirs à rendre dans le mois:</h1>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content *ngFor="let a of assigmentsPourLeMois">
+            <mat-card [routerLink]="['/assignment', a._id]">
+                <mat-card-header>
+                    <mat-card-title>
+                        <div>{{a.nom}}</div>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div>
+                        <div> <b> Date de rendu :</b> {{a.dateDeRendu | date}}</div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            <div class="spacer"></div>
+            <!-- add a spacer -->
+
+        </mat-card-content>
+    </mat-card>
+
+</div>

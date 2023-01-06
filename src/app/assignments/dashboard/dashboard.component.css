@@ -1,0 +1,24 @@
+.spacer{
+    flex: 1 1 auto;
+    margin-bottom: 10px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.child{
+    
+    margin: 10px;
+}
+#late{
+    background-color: rgb(255, 125, 143);
+}
+
+#week{
+    background-color: rgb(162, 243, 164);
+}
+#month{
+    background-color: rgb(205, 229, 250);
+}

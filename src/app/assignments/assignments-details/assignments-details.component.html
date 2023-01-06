@@ -1,0 +1,51 @@
+<div class="container">
+  <mat-card *ngIf="assignmentTransmis">
+    <mat-card-title>{{assignmentTransmis.nom}}</mat-card-title>
+    <mat-card-subtitle> Date de rendu : {{assignmentTransmis.dateDeRendu|date}} | Auteur :
+      {{assignmentTransmis.auteur}}</mat-card-subtitle>
+    <div id="buttons">
+      <mat-checkbox (click)="onAssignmentRendu()">
+        Devoir rendu
+      </mat-checkbox>
+      <div class="spacer"></div>
+      <div class="buttons">
+        <nav>
+          <a [routerLink]="isAdmin()? ['/assignment',assignmentTransmis._id,'edit' ] : null">
+            <button mat-raised-button color="primary">
+              Modifier
+            </button>
+          </a>
+        </nav>
+        <button *ngIf="assignmentTransmis.boiteDeRendu != undefined" mat-icon-button color="primary"
+          (click)="openLink(assignmentTransmis)">
+          <mat-icon>link</mat-icon>
+        </button>
+        <button mat-icon-button (click)="onDelete()" id="button-delete">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+      <div class="remarque">
+        Remarque :
+      </div>
+      <div>
+        {{assignmentTransmis.remarque}}
+      </div>
+
+      <!-- add an horizontal spacer -->
+      <div class="spacer-line"></div>
+      <div *ngIf="assignmentTransmis.note !== undefined">
+        <div class="note">
+          Note : {{assignmentTransmis.note}}/20
+        </div>
+      </div>
+      <div *ngIf="assignmentTransmis.note == undefined">
+        <div class="note">
+          Pas de note
+        </div>
+      </div>
+
+
+
+    </div>
+  </mat-card>
+</div>

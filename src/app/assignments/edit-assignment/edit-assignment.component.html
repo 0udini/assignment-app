@@ -1,0 +1,53 @@
+
+<mat-card>
+  <form
+    ngForm
+    (submit)="onSaveAssignment(); assignmentForm.reset()"
+    #assignmentForm
+    class="form"
+  >
+    <mat-form-field class="nomDevoir">
+      <input
+        matInput
+        [(ngModel)]="assignmentTransmis.nom"
+        name="nom"
+        placeholder="Nom du devoir"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="date">
+      <input
+        matInput
+        [matDatepicker]="picker"
+        placeholder="Date de rendu"
+        [(ngModel)]="assignmentTransmis.dateDeRendu"
+        name="date"
+        required
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="url">
+      <input
+        matInput
+        [(ngModel)]="assignmentTransmis.boiteDeRendu"
+        name="URL"
+        placeholder="URL de la boîte de dépot"
+      />
+    </mat-form-field>
+    <mat-form-field class="note">
+      <input
+        matInput
+        [(ngModel)]="assignmentTransmis.note"
+        name="note"
+        placeholder="Note"
+      />
+    </mat-form-field>
+    <mat-form-field class="remarque" >
+      <mat-label>Remarques pour le devoir</mat-label>
+      <textarea matInput [(ngModel)]="assignmentTransmis.remarque" name="remarque"></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">Sauvegarder les modifications</button>
+  </form>
+</mat-card>

@@ -1,0 +1,35 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
+  .checkers {
+    width: 5%;
+    padding-right: 10px;
+  }
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  mat-form-field {
+    width: 25em;
+   
+  }
+ 
+  
+  button {
+    width: 10em;
+    margin-left: 20%;
+  }
+ /* style the buttons within the table */
+ td button{
+   width: 100%;
+ }
