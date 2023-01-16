@@ -30,6 +30,7 @@ export class AuthentificationComponent{
           if (userFound.password == user.password) {
             localStorage.setItem('currentUser', JSON.stringify(userFound));
             this.authService.currentUser = userFound;
+            this.errorMessage = "Utilisateur connecté";
             console.log("current user :",localStorage.getItem('currentUser'));
             console.log("Connexion réussie");
             window.location.reload();
@@ -39,7 +40,7 @@ export class AuthentificationComponent{
           }
         }
         else {
-          this.errorMessage = "Utilisateur non trouvé";
+          this.errorMessage = "Nom d'utilisateur inconnu";
         }
       }
     )
@@ -63,7 +64,9 @@ export class AuthentificationComponent{
         else {
           this.authService.addUser(cred).subscribe(
             (userAdded) => {
+              this.errorMessage = "Compte créé";
               console.log("Utilisateur ajouté");
+             
             }
           )
         }
